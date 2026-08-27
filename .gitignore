@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+
+backend/venv/
+backend/__pycache__/
+__pycache__/
+*.pyc
+
+backend/main_backup.py
