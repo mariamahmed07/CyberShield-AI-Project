@@ -15,6 +15,8 @@ import Footer from '@/components/Footer';
 
 import { DEMO_EXAMPLES } from '@/demoExamples';
 
+const API_URL = import.meta.env.VITE_API_URL ?? 'http://127.0.0.1:8000';
+
 import type {
   AnalysisResult,
 } from '@/types';
@@ -81,7 +83,7 @@ export default function App() {
 
           const response =
             await fetch(
-              'http://127.0.0.1:8000/api/analyze',
+              `${API_URL}/api/analyze`,
               {
                 method: 'POST',
 
@@ -225,7 +227,7 @@ export default function App() {
 
 
           alert(
-            'Unable to connect to CyberShield AI backend. Make sure the backend is running on http://127.0.0.1:8000'
+            'Unable to connect to CyberShield AI backend. Check the backend URL and try again.'
           );
 
         } finally {
