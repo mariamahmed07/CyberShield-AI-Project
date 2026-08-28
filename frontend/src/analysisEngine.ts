@@ -370,6 +370,8 @@ export function analyzeThreat(text: string): AnalysisResult {
     threatType: THREAT_TYPES[riskLevel],
     riskMessage: RISK_MESSAGES[riskLevel],
     indicators,
+    phishingSignals: [],
+    safeSignals: [],
     recommendation: RECOMMENDATIONS[riskLevel],
     breakdown,
     analyzedText: trimmed,
