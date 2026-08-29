@@ -15,7 +15,21 @@ import Footer from '@/components/Footer';
 
 import { DEMO_EXAMPLES } from '@/demoExamples';
 
-const API_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, '') ?? '';
+const DEFAULT_LOCAL_API_URL = 'http://127.0.0.1:8080';
+const DEFAULT_PROD_API_URL = 'https://cybershield-ai-project-production-c06c.up.railway.app';
+
+const API_URL =
+  import.meta.env.VITE_API_URL?.replace(/\/$/, '') ??
+  (
+    typeof window !== 'undefined'
+      ? (
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1'
+          ? DEFAULT_LOCAL_API_URL
+          : DEFAULT_PROD_API_URL
+      )
+      : DEFAULT_LOCAL_API_URL
+  );
 
 import type {
   AnalysisResult,
